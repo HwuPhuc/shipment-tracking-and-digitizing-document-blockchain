@@ -1,57 +1,16 @@
-# Sample Hardhat 3 Beta Project (`node:test` and `viem`)
-
-This project showcases a Hardhat 3 Beta project using the native Node.js test runner (`node:test`) and the `viem` library for Ethereum interactions.
-
-To learn more about the Hardhat 3 Beta, please visit the [Getting Started guide](https://hardhat.org/docs/getting-started#getting-started-with-hardhat-3). To share your feedback, join our [Hardhat 3 Beta](https://hardhat.org/hardhat3-beta-telegram-group) Telegram group or [open an issue](https://github.com/NomicFoundation/hardhat/issues/new) in our GitHub issue tracker.
-
-## Project Overview
-
-This example project includes:
-
-- A simple Hardhat configuration file.
-- Foundry-compatible Solidity unit tests.
-- TypeScript integration tests using [`node:test`](nodejs.org/api/test.html), the new Node.js native test runner, and [`viem`](https://viem.sh/).
-- Examples demonstrating how to connect to different types of networks, including locally simulating OP mainnet.
-
-## Usage
-
-### Running Tests
-
-To run all the tests in the project, execute the following command:
-
-```shell
-npx hardhat test
-```
-
-You can also selectively run the Solidity or `node:test` tests:
-
-```shell
-npx hardhat test solidity
-npx hardhat test nodejs
-```
-
-### Make a deployment to Sepolia
-
-This project includes an example Ignition module to deploy the contract. You can deploy this module to a locally simulated chain or to Sepolia.
-
-To run the deployment to a local chain:
-
-```shell
-npx hardhat ignition deploy ignition/modules/Counter.ts
-```
-
-To run the deployment to Sepolia, you need an account with funds to send the transaction. The provided Hardhat configuration includes a Configuration Variable called `SEPOLIA_PRIVATE_KEY`, which you can use to set the private key of the account you want to use.
-
-You can set the `SEPOLIA_PRIVATE_KEY` variable using the `hardhat-keystore` plugin or by setting it as an environment variable.
-
-To set the `SEPOLIA_PRIVATE_KEY` config variable using `hardhat-keystore`:
-
-```shell
-npx hardhat keystore set SEPOLIA_PRIVATE_KEY
-```
-
-After setting the variable, you can run the deployment with the Sepolia network:
-
-```shell
-npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
-```
+# shipment-tracking-and-digitizing-document-blockchain
+  
+Để compile smart contract, mở Terminal lên và nhập lệnh sau: ``npx hardhat compile``  
+  
+Bước 1: Để khởi chạy dự án, mở 1 cửa sổ Terminal và chạy lệnh ``npx hardhat node``, kết quả sẽ trả về 20 address + private key  
+Bước 2: Tiếp tục mở cửa sổ Terminal thứ 2 (không tắt cửa sổ 1), chạy lệnh ``npx hardhat run scripts/deploy-and-test.js --network localhost``để chạy thử contract, nếu thấy chạy thử thành công (6 bước thực hiện trơn tru, địa chỉ contract được trả về, 6 tài khoản với 6 participant khác nhau)  
+Bước 3: Sử dụng extension Live Server trong VS Code để chạy file index.html trong folder frontend  
+Bước 4: Cài đặt extension MetaMask trên Google và mở extension lên  
+Bước 5: Ở góc trên, chọn biểu tượng danh mục, và chọn Add a custom network, điền thông tin như sau và thêm network  
+     Network Name = Hardhat Local  
+     New RPC URL = http://127.0.0.1:8545  
+     Chain ID =  31337  
+     Currency Symbol = ETH  
+Bước 6: Quay lại trang chủ của MetaMask, chọn biểu tượng tài khoản -> Import Account, chọn Private Key và dán các Private Key tương ứng 
+với 6 tài khoản của 6 participant khác nhau đã tạo ở trên (ở cửa sổ Terminal thứ 2)  
+Bước 7: Sau khi import xong tài khoản, quay lại trang web (mở bằng Live Server ở các bước trên), chọn mục Kết nối và điền địa chỉ contract (cửa sổ 2 Terminal), sau đó lần lượt bấm kết nối MetaMask và kết nối Contract  

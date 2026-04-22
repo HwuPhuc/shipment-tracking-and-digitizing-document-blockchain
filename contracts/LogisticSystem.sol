@@ -28,7 +28,6 @@ contract Logistics {
     }
 
     // ===================== STRUCT =====================
-
     // Thông tin người tham gia
     struct Participant {
         address account;
@@ -36,7 +35,6 @@ contract Logistics {
         Role role;
         bool isActive;
     }
-
     // Đơn hàng vận chuyển
     struct Shipment {
         uint256 id;
@@ -45,7 +43,6 @@ contract Logistics {
         State state;
         uint256 createdAt;
     }
-
     // Chứng từ
     struct Document {
         uint256 id;
@@ -55,11 +52,9 @@ contract Logistics {
         address owner; // ai upload
         bool approved; // đã được duyệt chưa
     }
-
     // ===================== STORAGE =====================
 
     address public admin;
-
     uint256 public shipmentCounter;
     uint256 public documentCounter;
 
@@ -67,8 +62,6 @@ contract Logistics {
     mapping(uint256 => Shipment) public shipments;
     mapping(uint256 => Document) public documents;
     mapping(uint256 => State[]) public shipmentHistory;
-
-    // mapping shipment -> list document
     mapping(uint256 => uint256[]) public shipmentDocuments;
 
     // ===================== EVENTS =====================
@@ -104,7 +97,6 @@ contract Logistics {
     }
 
     // ===================== PARTICIPANT =====================
-
     // Admin thêm người dùng
     function addParticipant(
         address _account,
@@ -125,7 +117,6 @@ contract Logistics {
         participants[_account].isActive = false;
     }
     // ===================== SHIPMENT =====================
-
     // Shipper tạo đơn hàng
     function createShipment(address _consignee) public onlyRole(Role.Shipper) {
         shipmentCounter++;
@@ -140,11 +131,8 @@ contract Logistics {
         shipmentHistory[shipmentCounter].push(State.Created);
         emit ShipmentCreated(shipmentCounter);
     }
-
     // ===================== DOCUMENT =====================
-
     /**
-     * Upload document
      * _hash = hash của file (lấy từ IPFS)
      */
     function uploadDocument(
@@ -176,7 +164,6 @@ contract Logistics {
     }
 
     // ===================== STATE MACHINE =====================
-
     function updateState(
         uint256 _shipmentId,
         State _newState
@@ -233,7 +220,6 @@ contract Logistics {
     }
 
     // ===================== VIEW FUNCTIONS =====================
-
     function getShipmentDocuments(
         uint256 _shipmentId
     ) public view returns (uint256[] memory) {
