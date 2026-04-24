@@ -4,15 +4,15 @@ Project này là 1 project nhỏ được tạo ra với mục đích chính là
 
 ## Setup
 
-Trước khi chạy dự án này, có một vài thứ cần phải chuẩn bị trước:
+Trước khi chạy dự án này, có một vài thứ cần phải chuẩn bị trước:  
 
-- Tải node.js tại [Trang chủ của Node.js](https://nodejs.org/en/download) (Ở thời điểm chỉnh sửa file này, node.js version dùng để chạy dự án là v.24.14.0)
-- Setup Pinata để có thể tải chứng từ lên đó, vào [trang chủ của Pinata](https://pinata.cloud/ipfs), tạo một tài khoản và đăng nhập vào Pinata, ở trang chủ, chuyển sang mục API Keys và chọn New key, đặt tên và điều chỉnh quyền như sau:
-      V3 Resources -> File (Write)
-      Legacy Endpoints -> Pinning -> pinFileToIPFS (check)
-      Legacy Endpoints -> Pinning -> pinJSONToIPFS (check)
-      Các quyền khác giữ nguyên
-- Sau khi tạo key thành công, lưu key lại, bao gồm 3 key (API key, API secret và JWT access token). Lấy JWT access token và sao chép vào thế chỗ cho phần `<JWT_ACCESS_TOKEN>` ở dòng 457 của file `frontend/index.html`
+- Tải node.js tại [Trang chủ của Node.js](https://nodejs.org/en/download) (Ở thời điểm chỉnh sửa file này, node.js version dùng để chạy dự án là v.24.14.0)  
+- Setup Pinata để có thể tải chứng từ lên đó, vào [trang chủ của Pinata](https://pinata.cloud/ipfs), tạo một tài khoản và đăng nhập vào Pinata, ở trang chủ, chuyển sang mục API Keys và chọn New key, đặt tên và điều chỉnh quyền như sau:  
+      V3 Resources -> File (Write)  
+      Legacy Endpoints -> Pinning -> pinFileToIPFS (check)  
+      Legacy Endpoints -> Pinning -> pinJSONToIPFS (check)  
+      Các quyền khác giữ nguyên  
+- Sau khi tạo key thành công, lưu key lại, bao gồm 3 key (API key, API secret và JWT access token). Lấy JWT access token và sao chép vào thế chỗ cho phần `<JWT_ACCESS_TOKEN>` ở dòng 457 của file `frontend/index.html`  
 
 ## Run project
 
